@@ -25,7 +25,6 @@ public class GameLluvia extends ApplicationAdapter {
 	@Override
 	public void create () {
 		 font = new BitmapFont(); // use libGDX's default Arial font
-		 
 		  // load the images for the droplet and the bucket, 64x64 pixels each 	     
 		  Sound hurtSound = Gdx.audio.newSound(Gdx.files.internal("hurt.ogg"));
 		  tarro = new Tarro(new Texture(Gdx.files.internal("bucket.png")),hurtSound);
