@@ -36,7 +36,6 @@ public class GameLluvia extends ApplicationAdapter {
          
 	      Music rainMusic = Gdx.audio.newMusic(Gdx.files.internal("rain.mp3"));
           lluvia = new Lluvia(gota, gotaMala, dropSound, rainMusic);
-	      
 	      // camera
 	      camera = new OrthographicCamera();
 	      camera.setToOrtho(false, 800, 480);
