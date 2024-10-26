@@ -28,7 +28,6 @@ public class GameLluvia extends ApplicationAdapter {
 		  // load the images for the droplet and the bucket, 64x64 pixels each 	     
 		  Sound hurtSound = Gdx.audio.newSound(Gdx.files.internal("hurt.ogg"));
 		  tarro = new Tarro(new Texture(Gdx.files.internal("bucket.png")),hurtSound);
-          
 	      // load the drop sound effect and the rain background "music" 
           Texture gota = new Texture(Gdx.files.internal("drop.png"));
           Texture gotaMala = new Texture(Gdx.files.internal("dropBad.png"));
