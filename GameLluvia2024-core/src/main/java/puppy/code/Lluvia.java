@@ -48,9 +48,7 @@ public class Lluvia {
 	
    public void actualizarMovimiento(Tarro tarro) { 
 	   // generar gotas de lluvia 
-	   if(TimeUtils.nanoTime() - lastDropTime > 100000000) crearGotaDeLluvia();
-
-	   
+	   if(TimeUtils.nanoTime() - lastDropTime > 100000000) crearGotaDeLluvia();	   
 	   // revisar si las gotas cayeron al suelo o chocaron con el tarro
 	   for (int i=0; i < gotas.size; i++ ) {
 		  Gota actual = gotas.get(i);
