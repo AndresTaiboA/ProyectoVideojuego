@@ -14,16 +14,12 @@ public class Lluvia {
 	//private Array<Integer> rainDropsType;
 	private Array<Gota> gotas;
     private long lastDropTime;
-    private Texture gotaBuena;
-    private Texture gotaMala;
     private Sound dropSound;
     private Music rainMusic;
 	
-    public Lluvia(Texture gotaBuena, Texture gotaMala, Sound ss, Music mm) {
+    public Lluvia(Sound ss, Music mm) {
 		rainMusic = mm;
 		dropSound = ss;
-		this.gotaBuena = gotaBuena;
-		this.gotaMala = gotaMala;
 	}
 	public void crear() {
 		//rainDropsPos = new Array<Rectangle>();
