@@ -16,6 +16,9 @@ public class Lluvia {
     private long lastDropTime;
     private Sound dropSound;
     private Music rainMusic;
+    private FabricaGotasBuenas fabricaBuena = new FabricaGotasBuenas();
+    private FabricaGotasMalas fabricaMala = new FabricaGotasMalas();
+    private Aplicacion app;
 	
     public Lluvia(Sound ss, Music mm) {
 		rainMusic = mm;
@@ -35,13 +38,20 @@ public class Lluvia {
 	    //Rectangle raindrop = new Rectangle();
 	    //rainDropsPos.add(raindrop);
 	    // ver el tipo de gota
+		//gotas se crean con su respectiva fábrica
 	    if (MathUtils.random(1,10)<3) {
-	    	GotaMala aux = new GotaMala(MathUtils.random(0, 800-64), 480, 64, 64);
-		    gotas.add(aux);
+	    	//utilizar app 
+	    	app = new Aplicacion(fabricaMala);
+		    gotas.add(app.crear());
+		    //utilizar la fabrica directamente
+    		//gotas.add(fabricaMala.obtenerGota());
 	    }
 	    else {
-	    	GotaBuena aux = new GotaBuena(MathUtils.random(0, 800-64), 480, 64, 64);
-    		gotas.add(aux);
+	    	//utilizar la fabrica directamente
+    		//gotas.add(fabricaBuena.obtenerGota());
+	    	//utilizar app 
+	    	app = new Aplicacion(fabricaBuena);
+		    gotas.add(app.crear());
     	}
 	    lastDropTime = TimeUtils.nanoTime();
 	   }
