@@ -19,6 +19,7 @@ public class Lluvia {
     private FabricaGotasBuenas fabricaBuena = new FabricaGotasBuenas();
     private FabricaGotasMalas fabricaMala = new FabricaGotasMalas();
     private Aplicacion app;
+    private Contexto context = new Contexto();
 	
     public Lluvia(Sound ss, Music mm) {
 		rainMusic = mm;
@@ -73,13 +74,13 @@ public class Lluvia {
 	      }
 	      if(actual.colisiona(tarro.getArea())) { //la gota choca con el tarro
 	    	if(gotas.get(i) instanceof GotaMala) { // gota dañina
-	    	  tarro.dañar();
-	    	  gotas.removeIndex(i);
+	    	  context.setStrategy(new EstrategiaConcretaDañar());
 	      	}else { // gota a recolectar
-	    	  tarro.sumarPuntos(10);
+	    	  context.setStrategy(new EstrategiaConcretaSumarPuntos());
 	          dropSound.play();
-	          gotas.removeIndex(i);
 	      	}
+	    	gotas.removeIndex(i);
+	    	context.ejecutarStr(tarro);
 	      }
 	   }   
 	   return true;
