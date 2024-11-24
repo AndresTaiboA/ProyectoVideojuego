@@ -19,11 +19,17 @@ public class Tarro {
 	   private boolean herido = false;
 	   private int tiempoHeridoMax=50;
 	   private int tiempoHerido;
+	   private static Tarro instancia;
 	   
-	   
-	   public Tarro(Texture tex, Sound ss) {
-		   bucketImage = tex;
-		   sonidoHerido = ss;
+	   private Tarro() {
+		   bucketImage = new Texture(Gdx.files.internal("bucket.png"));
+		   sonidoHerido = Gdx.audio.newSound(Gdx.files.internal("hurt.ogg"));
+	   }
+	   public static Tarro getInstancia() {
+		   if(instancia==null) {
+			   instancia = new Tarro();
+		   }
+		   return instancia;
 	   }
 	   
 		public int getVidas() {
