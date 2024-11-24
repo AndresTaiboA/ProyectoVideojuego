@@ -29,9 +29,17 @@ public class Tarro {
 		   if(instancia==null) {
 			   instancia = new Tarro();
 		   }
+		   else {
+			   instancia.reset();
+			   instancia.bucketImage = new Texture(Gdx.files.internal("bucket.png"));
+		   }
 		   return instancia;
 	   }
-	   
+	   public void reset() {
+		   vidas = 3;
+		   puntos = 0;
+		   herido = false;
+	   }
 		public int getVidas() {
 			return vidas;
 		}

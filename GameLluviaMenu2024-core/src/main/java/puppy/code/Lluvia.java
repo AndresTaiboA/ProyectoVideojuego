@@ -81,6 +81,9 @@ public class Lluvia {
 	      	}
 	    	gotas.removeIndex(i);
 	    	context.ejecutarStr(tarro);
+	    	if (tarro.getVidas()<=0) {
+	    		return false;
+	    	}
 	      }
 	   }   
 	   return true;
