@@ -66,13 +66,13 @@ public class Lluvia {
 	   for (int i=0; i < gotas.size; i++ ) {
 		  Gota actual = gotas.get(i);
 		  int y = actual.getY();
-		  y -= 300 * Gdx.graphics.getDeltaTime();
-	      actual.setY(y);
+
+	      actual.actualizar(Gdx.graphics.getDeltaTime(), tarro.getArea());
 	      //cae al suelo y se elimina
-	      if(y + 64 < 0) {
+	      if(actual.getY() + 64 < 0) {
 	    	  gotas.removeIndex(i); 
 	      }
-	      if(actual.colisiona(tarro.getArea())) { //la gota choca con el tarro
+	      if(actual.getChoco()) { //la gota choca con el tarro
 	    	if(gotas.get(i) instanceof GotaMala) { // gota dañina
 	    	  context.setStrategy(new EstrategiaConcretaDañar());
 	      	}else { // gota a recolectar

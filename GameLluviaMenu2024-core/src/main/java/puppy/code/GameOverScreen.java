@@ -23,6 +23,7 @@ public class GameOverScreen implements Screen {
 
 	@Override
 	public void render(float delta) {
+		
 		ScreenUtils.clear(0, 0, 0.2f, 1);
 		camera.update();
 		batch.setProjectionMatrix(camera.combined);

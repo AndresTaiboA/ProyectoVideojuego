@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Rectangle;
 public abstract class Gota {
 	private Texture sprite;
 	protected Rectangle dimensiones;
+	protected boolean choco = false; 
 	public Gota(int posX, int posY, int ancho, int alto, Texture textura) {
 		dimensiones = new Rectangle();
 		dimensiones.x = posX;
@@ -13,6 +14,14 @@ public abstract class Gota {
 		dimensiones.height = alto;
 		sprite = textura;
 	}
+	public final void actualizar(float deltatime, Rectangle rec) {
+		mover(deltatime);
+		if(colisiona(rec)) {
+			choco = true;
+		}
+	}
+	public abstract void mover(float deltatime);
+	public abstract boolean getChoco(); 
 	public abstract boolean colisiona(Rectangle rec);
 	public abstract int getY();
 	public abstract int getX();

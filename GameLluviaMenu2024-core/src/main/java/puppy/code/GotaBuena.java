@@ -27,4 +27,12 @@ public class GotaBuena extends Gota{
 	public void dibujar(SpriteBatch batch) {
 		batch.draw(textura, dimensiones.x, dimensiones.y);
 	}
+	@Override
+	public void mover(float deltatime) {
+		dimensiones.y -= 300 * deltatime;
+	}
+	@Override
+	public boolean getChoco() {
+		return choco;
+	}
 }
